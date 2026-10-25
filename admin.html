@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apple Store VN — Trang Quản trị</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="admin">
+
+<!-- ================= NAVBAR (QUẢN TRỊ) ================= -->
+<nav class="nav admin-nav"><div class="nav-in">
+  <div class="logo">⚙️ <b>Apple Store VN</b> <span class="admin-badge">Admin</span></div>
+  <div class="nav-links">
+    <a href="admin.html" class="active">Bảng điều khiển</a>
+    <a href="index.html">↩ Về trang khách hàng</a>
+  </div>
+  <div class="nav-act">
+    <span class="admin-badge" id="adminUser">Khách</span>
+    <button class="btn sm ghost" id="adminLogoutBtn" onclick="adminLogout()" style="display:none">Đăng xuất</button>
+  </div>
+</div></nav>
+
+<!-- ================= LOGIN QUẢN TRỊ ================= -->
+<section class="view active" id="adminLogin"><div class="admin-hero" id="adminLoginBox"></div></section>
+
+<!-- ================= BẢNG ĐIỀU KHIỂN ================= -->
+<section class="view" id="adminPanel">
+  <div class="admin-hero">
+    <h1>Quản lý cửa hàng</h1>
+    <p>Báo cáo kinh doanh · Sản phẩm · Đơn hàng · Khách hàng</p>
+    <div class="role-note">Trang này tách riêng khỏi khu vực khách hàng: tài khoản khách không truy cập được, tài khoản quản trị không bị trộn vào danh sách khách.</div>
+  </div>
+  <div class="wrap admin-wrap" id="adminBox"></div>
+</section>
+
+<footer>© 2026 Apple Store VN — Trang quản trị nội bộ (bản mô phỏng) · <a href="index.html">Trang khách hàng</a></footer>
+
+<div class="modal-bg" id="modalBg"><div class="modal" id="modalBox"></div></div>
+<div class="toast" id="toast"></div>
+
+<!-- Nạp: dữ liệu → lưu trữ → tiện ích → tải ảnh → quản trị
+     (KHÔNG nạp auth.js/shop.js của khách: trang này không có mua hàng, giỏ hàng, đặt hàng) -->
+<script src="js/supabase.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/store.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/upload.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/cloud.js"></script>
+<script>bootCloud();</script>
+</body>
+</html>

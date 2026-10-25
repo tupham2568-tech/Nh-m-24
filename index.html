@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apple Store Việt Nam — Cửa hàng trực tuyến</title>
+<meta name="description" content="Apple Store VN — mua iPhone, iPad, Mac, Watch, AirPods chính hãng, giá VND, giao nhanh toàn quốc.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ================= NAVBAR (KHÁCH HÀNG) ================= -->
+<nav class="nav"><div class="nav-in">
+  <div class="logo"> <b>Apple Store VN</b></div>
+  <div class="nav-links" id="navLinks">
+    <a data-nav="home" class="active" href="javascript:go('home')">Sản phẩm</a>
+    <a data-nav="orders" href="javascript:go('orders')">Đơn hàng của tôi</a>
+    <a data-nav="account" href="javascript:go('account')">Tài khoản</a>
+  </div>
+  <div class="nav-act">
+    <button class="icon-btn" onclick="go('account')" title="Tài khoản" aria-label="Tài khoản">👤</button>
+    <button class="icon-btn" onclick="go('cart')" title="Giỏ hàng" aria-label="Giỏ hàng">🛒<span class="badge" id="cartBadge" style="display:none">0</span></button>
+    <button class="btn sm" id="authBtn" onclick="go('login')">Đăng nhập</button>
+  </div>
+</div></nav>
+
+<!-- ================= HOME ================= -->
+<section class="view active" id="v-home">
+  <div class="hero">
+    <h1>Lưu trữ <span>Apple</span> chính hãng</h1>
+    <p>iPhone · iPad · Mac · Watch · AirPods — Giá VND • giao nhanh toàn quốc</p>
+    <div class="source-line">📊 Giá tham khảo theo apple.com/vn Shop. Dữ liệu mẫu chưa được xác minh lại; vui lòng kiểm tra giá trước khi đặt hàng.</div>
+  </div>
+  <div class="wrap">
+    <div class="toolbar">
+      <div class="search">🔍<input id="q" placeholder="Tìm kiếm sản phẩm… (VD: iPhone)" oninput="renderGrid()" aria-label="Tìm kiếm sản phẩm"></div>
+      <div class="chips" id="chips"></div>
+      <select class="sel" id="sort" onchange="renderGrid()" aria-label="Sắp xếp">
+        <option value="def">Mặc định</option>
+        <option value="asc">Giá thấp → cao</option>
+        <option value="desc">Giá cao → thấp</option>
+      </select>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- ================= DETAIL ================= -->
+<section class="view" id="v-detail"><div class="wrap" id="detailBox"></div></section>
+
+<!-- ================= CART ================= -->
+<section class="view" id="v-cart"><div class="wrap" id="cartBox"></div></section>
+
+<!-- ================= CHECKOUT ================= -->
+<section class="view" id="v-checkout"><div class="wrap" id="checkoutBox"></div></section>
+
+<!-- ================= CONFIRM ================= -->
+<section class="view" id="v-confirm"><div class="wrap" id="confirmBox"></div></section>
+
+<!-- ================= ORDERS ================= -->
+<section class="view" id="v-orders"><div class="wrap" id="ordersBox"></div></section>
+
+<!-- ================= LOGIN / ACCOUNT ================= -->
+<section class="view" id="v-login"><div class="wrap" style="max-width:480px" id="loginBox"></div></section>
+<section class="view" id="v-account"><div class="wrap" style="max-width:600px" id="accountBox"></div></section>
+
+<footer>© 2026 Apple Store VN — Cửa hàng trực tuyến (bản mô phỏng, dữ liệu tham khảo) · Khu vực khách hàng</footer>
+
+<div class="modal-bg" id="modalBg"><div class="modal" id="modalBox"></div></div>
+<div class="toast" id="toast"></div>
+
+<!-- Nạp theo đúng thứ tự phụ thuộc -->
+<script src="js/supabase.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/store.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/shop.js"></script>
+
+<script src="js/cloud.js"></script>
+<script>bootCloud();</script>
+</body>
+</html>
