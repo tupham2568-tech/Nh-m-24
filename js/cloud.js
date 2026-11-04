@@ -1,7 +1,7 @@
 /* Supabase adapter. No service key, no shared JSON blob, no fake offline success. */
 let db=null, cloudReady=false, cloudUser=null, cloudAdmin=false, cartVersion=0;
 let cloudBusy=false, refreshing=false, refreshTimer=null, recoveryMode=false;
-let lastSnapshot='', checkoutRequest=null;
+let signupInProgress = false;let lastSnapshot='', checkoutRequest=null;
 const isAdminPage=document.body.classList.contains('admin');
 const $=id=>document.getElementById(id);
 function cloudStatus(text,bad=false){const el=$('cloudStatus');if(el){el.textContent=text;el.classList.toggle('cloud-error',bad)}}
